@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herramientas para la Ansiedad | Taller Transformacional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-primary: #6366f1;
+            --color-secondary: #ec4899;
+            --color-dark: #1e293b;
+            --color-light: #f8fafc;
+            --color-accent: #f59e0b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--color-dark);
+            background: var(--color-light);
+        }
+
+        /* Header/Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--color-accent);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            background: #f97316;
+        }
+
+        .hero-emotion {
+            font-size: 0.9em;
+            margin-top: 25px;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        /* Problem Section */
+        .problem-section {
+            padding: 60px 20px;
+            background: white;
+            text-align: center;
+        }
+
+        .problem-section h2 {
+            font-size: 2em;
+            margin-bottom: 40px;
+            color: var(--color-dark);
+        }
+
+        .problem-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .problem-card {
+            padding: 30px;
+            background: var(--color-light);
+            border-radius: 12px;
+            border-left: 4px solid var(--color-secondary);
+        }
+
+        .problem-card .emoji {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .problem-card h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: var(--color-secondary);
+        }
+
+        .problem-card p {
+            color: #64748b;
+            font-size: 0.95em;
+        }
+
+        /* Solution/Benefits Section */
+        .benefits-section {
+            padding: 60px 20px;
+            background: linear-gradient(to bottom, var(--color-light), white);
+        }
+
+        .benefits-section h2 {
+            font-size: 2em;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--color-dark);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .benefit-item {
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        }
+
+        .benefit-item .icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .benefit-item h3 {
+            color: var(--color-primary);
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .benefit-item p {
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        /* Journey Section */
+        .journey-section {
+            padding: 60px 20px;
+            background: var(--color-dark);
+            color: white;
+            text-align: center;
+        }
+
+        .journey-section h2 {
+            font-size: 2em;
+            margin-bottom: 50px;
+        }
+
+        .journey-image {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .journey-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        .journey-text {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.05em;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        /* Facilitator Section */
+        .facilitator-section {
+            padding: 60px 20px;
+            background: white;
+        }
+
+        .facilitator-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .facilitator-section h2 {
+            font-size: 2em;
+            margin-bottom: 40px;
+            color: var(--color-dark);
+        }
+
+        .facilitator-card {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .facilitator-name {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .facilitator-cred {
+            font-size: 1.1em;
+            opacity: 0.95;
+            margin-bottom: 20px;
+        }
+
+        .linkedin-link {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+        }
+
+        .linkedin-link:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* Details Section */
+        .details-section {
+            padding: 60px 20px;
+            background: var(--color-light);
+        }
+
+        .details-grid {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .detail-box {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .detail-box .label {
+            color: #64748b;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .detail-box .value {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .cta-section p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-section .urgent {
+            font-size: 0.95em;
+            margin-top: 20px;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-dark);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9em;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8em;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1em;
+            }
+
+            .benefits-grid,
+            .problem-cards,
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 40px 20px !important;
+            }
+
+            h2 {
+                font-size: 1.6em !important;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .benefit-item,
+        .problem-card {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .pulse {
+            animation: pulse-animation 2s infinite;
+        }
+
+        @keyframes pulse-animation {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>¿Cansado de que la ansiedad controle tus decisiones?</h1>
+            <p class="subtitle">Descubre cómo recuperar el control en solo 2 horas</p>
+            <p class="hero-emotion">120 minutos que cambiarán tu relación con la ansiedad</p>
+            <a href="https://wa.me/573002333677?text=Hola%20Pía%2C%20me%20interesa%20conocer%20más%20sobre%20el%20taller%20de%20ansiedad%20%F0%9F%92 " class="cta-button" target="_blank">
+                ✓ Quiero Saber Más
+            </a>
+        </div>
+    </section>
+
+    <!-- PROBLEM SECTION -->
+    <section class="problem-section">
+        <h2>¿Te suena familiar?</h2>
+        <div class="problem-cards">
+            <div class="problem-card">
+                <div class="emoji">⚡</div>
+                <h3>Pensamientos en bucle</h3>
+                <p>Tu mente no para de anticipar lo peor, incluso cuando todo está bien</p>
+            </div>
+            <div class="problem-card">
+                <div class="emoji">💓</div>
+                <h3>Síntomas físicos</h3>
+                <p>Palpitaciones, tensión, falta de aire sin razón aparente</p>
+            </div>
+            <div class="problem-card">
+                <div class="emoji">🚫</div>
+                <h3>Evitación constante</h3>
+                <p>Limitas tus actividades y decisiones por miedo a la ansiedad</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFITS SECTION -->
+    <section class="benefits-section">
+        <h2>Lo que lograrás en este taller</h2>
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <div class="icon">🧠</div>
+                <h3>Entiende realmente</h3>
+                <p>Descubre cómo funciona tu ansiedad desde una perspectiva científica probada</p>
+            </div>
+            <div class="benefit-item">
+                <div class="icon">🛠️</div>
+                <h3>Herramientas prácticas</h3>
+                <p>Adquiere herramientas generales basadas en TCC y Mindfulness que funcionan</p>
+            </div>
+            <div class="benefit-item">
+                <div class="icon">🎯</div>
+                <h3>Tu plan personalizado</h3>
+                <p>Recibe una guía para construir tu kit personal que profundizarás en consulta psicológica si lo deseas</p>
+            </div>
+            <div class="benefit-item">
+                <div class="icon">✨</div>
+                <h3>Toma el control</h3>
+                <p>Desarrolla el poder de manejar tus respuestas antes de que la ansiedad te maneje a ti</p>
+            </div>
+            <div class="benefit-item">
+                <div class="icon">🔄</div>
+                <h3>Prevención a largo plazo</h3>
+                <p>Aprende cómo prevenir y gestionar la ansiedad de manera sostenible</p>
+            </div>
+            <div class="benefit-item">
+                <div class="icon">👥</div>
+                <h3>Red de apoyo</h3>
+                <p>Conecta con otras personas en tu mismo camino en un espacio seguro</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- JOURNEY SECTION -->
+    <section class="journey-section">
+        <h2>Tu viaje en 120 minutos</h2>
+        <div class="journey-image">
+            <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/482d37e3565e23ce9de2cfbb1f6413ce/0ea881bc-7af8-4f57-b73f-47b64160a68b/a1922202.png" alt="Transformación del taller">
+        </div>
+        <div class="journey-text">
+            <p><strong>Fase 1:</strong> Exploramos qué es realmente la ansiedad y cómo funciona en tu cuerpo y mente.</p>
+            <p><strong>Fase 2:</strong> Practicamos técnicas de regulación fisiológica que puedes usar en cualquier momento.</p>
+            <p><strong>Fase 3:</strong> Desafiamos los patrones de pensamiento que alimentan tu ansiedad.</p>
+            <p><strong>Fase 4:</strong> <strong>Construyes tu herramienta guiada</strong> — Tú la diligencias en el taller y, posteriormente en consulta psicológica con un profesional, podrás profundizar y validar esa herramienta junto con otras estrategias específicas para tu caso.</p>
+        </div>
+
+    </section>
+
+    <!-- FACILITATOR SECTION -->
+    <section class="facilitator-section">
+        <div class="facilitator-content">
+            <h2>Tu facilitadora</h2>
+            <div class="facilitator-card">
+                <div class="facilitator-name">Pía Paola Sierra</div>
+                <div class="facilitator-cred">Psicóloga especialista en Psicología Clínica</div>
+                <p style="margin: 20px 0;">Con experiencia en intervención psicológica basada en evidencia, especializada en el manejo de ansiedad y trastornos emocionales.</p>
+                <a href="https://www.linkedin.com/in/pia-paola-sierra-36953097/" class="linkedin-link" target="_blank">Ver perfil profesional</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- DETAILS SECTION -->
+    <section class="details-section">
+        <div class="details-grid">
+            <div class="detail-box">
+                <div class="label">Duración</div>
+                <div class="value">120 min</div>
+                <p style="margin-top: 10px; color: #64748b;">Sesión intensiva y completa</p>
+            </div>
+            <div class="detail-box">
+                <div class="label">Valor</div>
+                <div class="value">$45K</div>
+                <p style="margin-top: 10px; color: #64748b;">Una inversión en tu bienestar</p>
+            </div>
+            <div class="detail-box">
+                <div class="label">Cupos</div>
+                <div class="value">20</div>
+                <p style="margin-top: 10px; color: #64748b;">Grupo reducido para mayor inmersión</p>
+            </div>
+            <div class="detail-box">
+                <div class="label">Horario</div>
+                <div class="value">?</div>
+                <p style="margin-top: 10px; color: #64748b;">Confirma en WhatsApp</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA SECTION -->
+    <section class="cta-section">
+        <h2>¿Estás listo para cambiar?</h2>
+        <p>No es "si quiero", es "cuándo empiezo". Cada día que esperas es otro día viviendo en control de la ansiedad.</p>
+        <a href="https://wa.me/573002333677?text=Hola%20Pía%2C%20me%20interesa%20participar%20en%20el%20taller%20de%20ansiedad.%20¿Cuál%20es%20el%20próximo%20horario%20disponible%3F" class="cta-button" target="_blank">
+            💬 Hablar con Pía en WhatsApp
+        </a>
+        <p class="urgent">⏰ Solo 20 cupos disponibles • Grupo pequeño = atención personalizada</p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Herramientas para la Ansiedad | Facilitadora: Pía Paola Sierra, Psicóloga Esp. Clínica</p>
+        <p style="margin-top: 10px; font-size: 0.85em; opacity: 0.8;">Este taller complementa, no reemplaza, la atención psicológica profesional individual</p>
+    </footer>
+
+    <script>
+        // Smooth scroll para enlaces internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Analytics simple: registrar clicks en CTA
+        document.querySelectorAll('.cta-button').forEach(btn => {
+            btn.addEventListener('click', function() {
+                console.log('CTA clicked:', this.textContent);
+            });
+        });
+    </script>
+</body>
+</html>
