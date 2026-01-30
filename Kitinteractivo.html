@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Kit Anti-Ansiedad - Plan Personal de Prevención y Manejo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-light: #eef2ff;
+            --secondary: #8b5cf6;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --border: #e5e7eb;
+            --bg: #f9fafb;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--text-dark);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .info-box {
+            background: var(--primary-light);
+            border-left: 5px solid var(--primary);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            font-size: 0.95em;
+            color: var(--text-dark);
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-light);
+        }
+
+        .subsection-title {
+            font-size: 1.2em;
+            color: var(--secondary);
+            margin-top: 20px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+            font-size: 0.95em;
+        }
+
+        .field-helper {
+            font-size: 0.85em;
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 1em;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="date"]:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+            font-family: inherit;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .row.three {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .list-inputs {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .list-item {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .list-item span {
+            font-weight: 600;
+            color: var(--primary);
+            min-width: 25px;
+            margin-top: 12px;
+        }
+
+        .list-item input {
+            flex: 1;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: var(--primary);
+        }
+
+        .checkbox-item label {
+            margin: 0;
+            cursor: pointer;
+            font-weight: 400;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--text-light);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: var(--text-dark);
+        }
+
+        .btn-success {
+            background: var(--success);
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #059669;
+        }
+
+        .progress-bar {
+            background: var(--border);
+            height: 4px;
+            border-radius: 2px;
+            margin: 20px 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+
+        .alert-box {
+            background: #fef3c7;
+            border: 2px solid #fbbf24;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            color: #92400e;
+            font-size: 0.95em;
+        }
+
+        .success-msg {
+            background: #d1fae5;
+            border: 2px solid #6ee7b7;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            color: #065f46;
+            display: none;
+        }
+
+        .footer {
+            background: var(--bg);
+            padding: 20px;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9em;
+            border-top: 1px solid var(--border);
+        }
+
+        .accordion {
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+
+        .accordion-header {
+            background: var(--primary-light);
+            padding: 15px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background: #dbeafe;
+        }
+
+        .accordion-content {
+            display: none;
+            padding: 20px;
+            background: white;
+        }
+
+        .accordion-content.active {
+            display: block;
+        }
+
+        .accordion-icon {
+            font-size: 1.2em;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-header.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        @media (max-width: 768px) {
+            .row, .row.three {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .section-title {
+                font-size: 1.4em;
+            }
+        }
+
+        .emoji {
+            font-size: 1.2em;
+        }
+
+        .tip-box {
+            background: #f0fdf4;
+            border-left: 5px solid var(--success);
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            font-size: 0.95em;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        table th,
+        table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        table th {
+            background: var(--primary-light);
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        table tr:hover {
+            background: var(--bg);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><span class="emoji">🧰</span> Mi Kit Anti-Ansiedad</h1>
+            <p>Plan Personal de Prevención y Manejo</p>
+        </div>
+
+        <div class="content">
+            <!-- SECCIÓN 1: DATOS BÁSICOS -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="emoji">👤</span> Información Personal
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" placeholder="Tu nombre completo">
+                    </div>
+                    <div class="form-group">
+                        <label for="fecha">Fecha</label>
+                        <input type="date" id="fecha">
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 2: SEÑALES DE ALERTA -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="emoji">🚨</span> Mis Señales de Alerta Temprana
+                </div>
+
+                <div class="info-box">
+                    <strong>Así reconozco que mi ansiedad está apareciendo:</strong> Identifica cómo se manifiesta tu ansiedad en tres aspectos clave.
+                </div>
+
+                <div class="subsection-title">En mi cuerpo (síntomas físicos)</div>
+                <div class="list-inputs">
+                    <div class="list-item">
+                        <span>1.</span>
+                        <input type="text" placeholder="Ej: tensión en el pecho, palpitaciones, temblor" class="early-signs-body">
+                    </div>
+                    <div class="list-item">
+                        <span>2.</span>
+                        <input type="text" placeholder="Ej: sudoración, nudo en el estómago" class="early-signs-body">
+                    </div>
+                    <div class="list-item">
+                        <span>3.</span>
+                        <input type="text" placeholder="Ej: cambios en la respiración, cansancio" class="early-signs-body">
+                    </div>
+                </div>
+
+                <div class="subsection-title" style="margin-top: 30px;">En mis pensamientos</div>
+                <div class="list-inputs">
+                    <div class="list-item">
+                        <span>1.</span>
+                        <input type="text" placeholder="Ej: 'Algo malo va a pasar', 'No puedo hacerlo'" class="early-signs-thoughts">
+                    </div>
+                    <div class="list-item">
+                        <span>2.</span>
+                        <input type="text" placeholder="Ej: rumiación, catastrofismo" class="early-signs-thoughts">
+                    </div>
+                </div>
+
+                <div class="subsection-title" style="margin-top: 30px;">En mi comportamiento</div>
+                <div class="list-inputs">
+                    <div class="list-item">
+                        <span>1.</span>
+                        <input type="text" placeholder="Ej: evitar situaciones, movimiento nervioso" class="early-signs-behavior">
+                    </div>
+                    <div class="list-item">
+                        <span>2.</span>
+                        <input type="text" placeholder="Ej: compulsiones, buscar seguridad" class="early-signs-behavior">
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-top: 30px;">
+                    <label for="earliest-sign">Mi señal más temprana (la que aparece primero)</label>
+                    <span class="field-helper">Esta es la más importante para detectar tu ansiedad a tiempo</span>
+                    <input type="text" id="earliest-sign" placeholder="¿Cuál es tu primera señal de alerta?" style="border: 3px solid var(--warning); padding: 15px;">
+                </div>
+            </div>
+
+            <!-- SECCIÓN 3: HERRAMIENTAS DE REGULACIÓN -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="emoji">🛠️</span> Mis Herramientas de Regulación
+                </div>
+
+                <div class="info-box">
+                    <strong>Estas son las técnicas que he aprendido para regularme cuando siento ansiedad.</strong> Agrega todas las que encuentres útiles.
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-header active">
+                        <span>📌 Técnica #1</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content active">
+                        <div class="form-group">
+                            <label for="tech1-name">Nombre de la técnica</label>
+                            <input type="text" id="tech1-name" placeholder="Ej: Respiración 4-7-8, Grounding, Meditación...">
+                        </div>
+                        <div class="form-group">
+                            <label for="tech1-how">¿Cómo la hago?</label>
+                            <span class="field-helper">Describe los pasos detalladamente</span>
+                            <textarea id="tech1-how" placeholder="Ej: Inhalo contando hasta 4, mantengo la respiración contando hasta 7, exhalo contando hasta 8..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="tech1-when">¿Cuándo la uso?</label>
+                            <span class="field-helper">Ej: nivel de ansiedad 1-4, en casa, en el trabajo, en público</span>
+                            <textarea id="tech1-when" placeholder="Describe en qué situaciones o niveles de ansiedad funciona mejor..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-header">
+                        <span>📌 Técnica #2</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="form-group">
+                            <label for="tech2-name">Nombre de la técnica</label>
+                            <input type="text" id="tech2-name" placeholder="Ej: Respiración 4-7-8, Grounding, Meditación...">
+                        </div>
+                        <div class="form-group">
+                            <label for="tech2-how">¿Cómo la hago?</label>
+                            <span class="field-helper">Describe los pasos detalladamente</span>
+                            <textarea id="tech2-how" placeholder="Describe la técnica paso a paso..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="tech2-when">¿Cuándo la uso?</label>
+                            <span class="field-helper">Ej: nivel de ansiedad 1-4, en casa, en el trabajo, en público</span>
+                            <textarea id="tech2-when" placeholder="Describe en qué situaciones o niveles de ansiedad funciona mejor..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-header">
+                        <span>📌 Técnica #3</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="form-group">
+                            <label for="tech3-name">Nombre de la técnica</label>
+                            <input type="text" id="tech3-name" placeholder="Ej: Respiración 4-7-8, Grounding, Meditación...">
+                        </div>
+                        <div class="form-group">
+                            <label for="tech3-how">¿Cómo la hago?</label>
+                            <span class="field-helper">Describe los pasos detalladamente</span>
+                            <textarea id="tech3-how" placeholder="Describe la técnica paso a paso..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="tech3-when">¿Cuándo la uso?</label>
+                            <span class="field-helper">Ej: nivel de ansiedad 1-4, en casa, en el trabajo, en público</span>
+                            <textarea id="tech3-when" placeholder="Describe en qué situaciones o niveles de ansiedad funciona mejor..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 4: PENSAMIENTOS ALTERNATIVOS -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="emoji">💭</span> Mis Pensamientos Alternativos
+                </div>
+
+                <div class="info-box">
+                    <strong>Cuando pienso algo catastrófico, puedo reemplazarlo con pensamientos más realistas.</strong>
+                </div>
+
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Pensamiento Ansioso</th>
+                                <th>Pensamiento Alternativo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input type="text" value="Esto va a salir mal" style="border: none; background: transparent; padding: 0; width: 100%;">
+                                </td>
+                                <td>
+                                    <input type="text" id="alt-thought-1" placeholder="He superado cosas difíciles antes, tengo herramientas..." style="border: none; background: transparent; padding: 0; width: 100%;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="text" value="No voy a poder manejarlo" style="border: none; background: transparent; padding: 0; width: 100%;">
+                                </td>
+                                <td>
+                                    <input type="text" id="alt-thought-2" placeholder="Puedo pedir ayuda si lo necesito, no tengo que hacerlo solo/a..." style="border: none; background: transparent; padding: 0; width: 100%;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="text" value="Todos me están juzgando" style="border: none; background: transparent; padding: 0; width: 100%;">
+                                </td>
+                                <td>
+                                    <input type="text" id="alt-thought-3" placeholder="La mayoría de las personas están enfocadas en sí mismas..." style="border: none; background: transparent; padding: 0; width: 100%;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="text" id="custom-anxious-1" placeholder="Tu pensamiento ansioso aquí" style="border: 1px solid var(--border);">
+                                </td>
+                                <td>
+                                    <input type="text" id="custom-alt-1" placeholder="Tu pensamiento alternativo aquí" style="border: 1px solid var(--border);">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 5: ACCIONES DE PREVENCIÓN DIARIA -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="emoji">🧘</span> Acciones de Prevención Diaria
+                </div>
+
+                <div class="info-box">
+                    <strong>Para mantener mi ansiedad bajo control, me comprometo a:</strong>
+                </div>
+
+                <div class="subsection-title">TODAS LAS MAÑANAS</div>
+                <div class="list-inputs">
+                    <div class="list-item">
+                        <span>✓</span>
+                        <input type="text" placeholder="Ej: 5 minutos de meditación, ejercicio de respiración...">
+                    </div>
+                </div>
+
+                <div class="subsection-title" style="margin-top: 25px;">DURANTE EL DÍA</div>
+                <div class="list-inputs">
+                    <div class="list-item">
+                        <span>✓</span>
+                        <input type="text" placeholder="Ej: caminar 15 minutos, tomar agua regularmente...">
+                    </div>
+                    <div class="list-item">
+                        <span>✓</span>
+                        <input type="text" placeholder="Ej: pausas de respiración cada 2 horas...">
+                    </div>
+                </div>
+
+                <div class="subsection-title" style="margin-top: 25px;">ANTES DE DORMIR</div>
+                <div class="list-inputs">
+                    <div class="list-item">
+                        <span>✓</span>
+                        <input type="text" placeholder="Ej: yoga suave, lectura relajante, meditación guiada...">
+                    </div>
+                </div>
+
+                <div class="subsection-title" style="margin-top: 25px;">DURANTE LA SEMANA</div>
+                <div class="list-inputs">
+                    <div class="list-item">
+                        <span>✓</span>
+                        <input type="text" placeholder="Ej: ejercicio físico 30 minutos, 3 veces a la semana...">
+                    </div>
+                    <div class="list-item">
+                        <span>✓</span>
+                        <input type="text" placeholder="Ej: tiempo de calidad con amigos o familia...">
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 6: ACTIVIDADES REGULADORAS -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="emoji">🏃</span> Actividades Que Me Regulan
+                </div>
+
+                <div class="info-box">
+                    <strong>Cuando mi ansiedad está en nivel bajo-moderado (1-5), puedo hacer estas actividades:</strong>
+                </div>
+
+                <div class="list-inputs">
+                    <div class="list-item">
+                        <span>1.</span>
+                        <input type="text" placeholder="Ej: caminar en la naturaleza, escuchar música...">
+                    </div>
+                    <div class="list-item">
+                        <span>2.</span>
+                        <input type="text" placeholder="Ej: dibujar, escribir, actividades creativas...">
+                    </div>
+                    <div class="list-item">
+                        <span>3.</span>
+                        <input type="text" placeholder="Ej: ver una película, leer, hobby favorito...">
+                    </div>
+                    <div class="list-item">
+                        <span>4.</span>
+                        <input type="text" placeholder="Ej: ejercicio, deporte, movimiento físico...">
+                    </div>
+                    <div class="list-item">
+                        <span>5.</span>
+                        <input type="text" placeholder="Ej: socializar, hablar con alguien...">
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-top: 25px;">
+                    <label for="why-regulate">Estas actividades me funcionan porque:</label>
+                    <textarea id="why-regulate" placeholder="Ej: me distraen, me relajan, me hacen sentir útil, me reconectan con lo que disfruto..."></textarea>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 7: LO QUE DEBO EVITAR -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="emoji">🚫</span> Lo Que Debo Evitar
+                </div>
+
+                <div class="info-box">
+                    <strong>Estos comportamientos AUMENTAN mi ansiedad:</strong>
+                </div>
+
+                <div class="list-inputs">
+                    <div class="list-item">
+                        <span>•</span>
+                        <input type="text" placeholder="Ej: redes sociales excesivas, cafeína, falta de sueño...">
+                    </div>
+                    <div class="list-item">
+                        <span>•</span>
+                        <input type="text" placeholder="Ej: compararse con otros, procrastinación...">
+                    </div>
+                    <div class="list-item">
+                        <span>•</span>
+                        <input type="text" placeholder="Ej: aislamiento, evitar situaciones...">
+                    </div>
+                    <div class="list-item">
+                        <span>•</span>
+                        <input type="text" placeholder="Ej: alcohol, drogas, malos hábitos...">
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-top: 25px;">
+                    <label for="alternatives">Cuando sienta la tentación de hacerlos, en su lugar haré:</label>
+                    <textarea id="alternatives" placeholder="Ej: En lugar de redes sociales, haré una caminata. En lugar de cafés, tomaré té de hierbas..."></textarea>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 8: RED DE APOYO -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="emoji">👥</span> Mi Red de Apoyo
+                </div>
+
+                <div class="info-box">
+                    <strong>Personas con las que puedo hablar cuando estoy ansioso/a:</strong>
+                </div>
+
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Contacto</th>
+                                <th>Cuándo Acudir</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="text" placeholder="Persona 1" style="border: none; background: transparent; padding: 0; width: 100%;"></td>
+                                <td><input type="text" placeholder="Teléfono/Email" style="border: none; background: transparent; padding: 0; width: 100%;"></td>
+                                <td><input type="text" placeholder="Cuándo contactar" style="border: none; background: transparent; padding: 0; width: 100%;"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" placeholder="Persona 2" style="border: none; background: transparent; padding: 0; width: 100%;"></td>
+                                <td><input type="text" placeholder="Teléfono/Email" style="border: none; background: transparent; padding: 0; width: 100%;"></td>
+                                <td><input type="text" placeholder="Cuándo contactar" style="border: none; background: transparent; padding: 0; width: 100%;"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" placeholder="Persona 3" style="border: none; background: transparent; padding: 0; width: 100%;"></td>
+                                <td><input type="text" placeholder="Teléfono/Email" style="border: none; background: transparent; padding: 0; width: 100%;"></td>
+                                <td><input type="text" placeholder="Cuándo contactar" style="border: none; background: transparent; padding: 0; width: 100%;"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="subsection-title" style="margin-top: 25px;">Líneas de Apoyo en Crisis</div>
+                <div class="list-inputs">
+                    <div class="list-item">
+                        <span>📱</span>
+                        <input type="text" placeholder="Línea de crisis: _______________">
+                    </div>
+                    <div class="list-item">
+                        <span>👨‍⚕️</span>
+                        <input type="text" placeholder="Profesional de salud mental: _______________">
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 9: PLAN POR NIVEL DE ANSIEDAD -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="emoji">🎯</span> Mi Plan de Acción por Nivel de Ansiedad
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-header active">
+                        <span>Nivel 1-3 (Ansiedad Leve)</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content active">
+                        <div class="form-group">
+                            <label>¿Qué hago?</label>
+                            <textarea placeholder="Ej: respiración simple, caminata, música relajante..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-header">
+                        <span>Nivel 4-6 (Ansiedad Moderada)</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="form-group">
+                            <label>¿Qué hago?</label>
+                            <textarea placeholder="Ej: uso mis técnicas de regulación, contacto con alguien de confianza..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-header">
+                        <span>Nivel 7-8 (Ansiedad Alta)</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="form-group">
+                            <label>¿Qué hago?</label>
+                            <textarea placeholder="Ej: busco apoyo profesional, contacto con alguien de mi red..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion">
+                    <div class="accordion-header">
+                        <span>Nivel 9-10 (Ansiedad Severa/Crisis)</span>
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="form-group">
+                            <label>¿Qué hago?</label>
+                            <textarea placeholder="Ej: llamo a emergencias, voy a urgencias, contacto con profesional..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>A quién llamo:</label>
+                            <input type="text" placeholder="Nombre y contacto de emergencia">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 10: RECORDATORIOS IMPORTANTES -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="emoji">📝</span> Mis Recordatorios Importantes
+                </div>
+
+                <div class="form-group">
+                    <label>Cosas que quiero recordarme cuando esté ansioso/a:</label>
+                    <div class="list-inputs">
+                        <div class="list-item">
+                            <span>1.</span>
+                            <input type="text" placeholder="Ej: Esto es temporal, va a pasar...">
+                        </div>
+                        <div class="list-item">
+                            <span>2.</span>
+                            <input type="text" placeholder="Ej: He superado esto antes...">
+                        </div>
+                        <div class="list-item">
+                            <span>3.</span>
+                            <input type="text" placeholder="Ej: Puedo pedir ayuda...">
+                        </div>
+                        <div class="list-item">
+                            <span>4.</span>
+                            <input type="text" placeholder="Ej: Soy más fuerte de lo que creo...">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-top: 25px;">
+                    <label for="mantra">Una frase o mantra personal que me calma:</label>
+                    <input type="text" id="mantra" placeholder="Ej: 'Estoy seguro/a', 'Esto es un momento, no una eternidad'..." style="border: 3px solid var(--success); padding: 15px; font-size: 1.1em;">
+                </div>
+            </div>
+
+            <!-- SECCIÓN 11: COMPROMISO -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="emoji">✅</span> Mi Compromiso Conmigo Mismo/a
+                </div>
+
+                <div class="alert-box">
+                    <strong>Esta semana me comprometo a:</strong>
+                </div>
+
+                <div class="form-group">
+                    <label>Practicar mis técnicas de regulación</label>
+                    <input type="number" min="1" max="10" placeholder="Número de veces al día" style="max-width: 200px;">
+                    <span class="field-helper">veces al día</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Identificar y cuestionar al menos</label>
+                    <input type="number" min="1" max="20" placeholder="Número de pensamientos" style="max-width: 200px;">
+                    <span class="field-helper">pensamientos ansiosos</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Hacer</label>
+                    <input type="number" min="1" max="10" placeholder="Número de actividades" style="max-width: 200px;">
+                    <span class="field-helper">actividades que me regulan</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Evitar:</label>
+                    <input type="text" placeholder="¿Qué voy a evitar esta semana?">
+                </div>
+
+                <div class="form-group">
+                    <label>Pedir apoyo si mi ansiedad llega a nivel:</label>
+                    <input type="number" min="1" max="10" placeholder="Número del nivel" style="max-width: 200px;">
+                </div>
+
+                <div class="form-group">
+                    <label>Otro compromiso:</label>
+                    <textarea placeholder="Ej: meditar 10 minutos diarios, dormir 7 horas..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Revisaré este kit:</label>
+                    <select>
+                        <option value="">Selecciona una opción</option>
+                        <option value="weekly">Semanalmente</option>
+                        <option value="when-needed">Cuando lo necesite</option>
+                        <option value="monthly">Mensualmente</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 12: ESPACIO PARA ACTUALIZAR -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="emoji">📊</span> Espacio para Actualizar
+                </div>
+
+                <div class="form-group">
+                    <label for="review-date">Fecha de revisión:</label>
+                    <input type="date" id="review-date">
+                </div>
+
+                <div class="form-group">
+                    <label>¿Qué ha funcionado bien?</label>
+                    <textarea placeholder="Ej: La respiración 4-7-8 me ayuda mucho, las caminatas son muy efectivas..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>¿Qué necesito ajustar?</label>
+                    <textarea placeholder="Ej: Necesito practicar más mis técnicas, debo buscar apoyo profesional..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Nuevas herramientas que quiero agregar:</label>
+                    <textarea placeholder="Ej: Yoga, terapia cognitiva, meditación guiada..."></textarea>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 13: RECORDATORIOS FINALES -->
+            <div class="section">
+                <div class="section-title">
+                    <span class="emoji">💡</span> Recuerda
+                </div>
+
+                <div class="tip-box">
+                    ✅ La ansiedad es una respuesta normal que PUEDES manejar
+                </div>
+
+                <div class="tip-box">
+                    ✅ Usar estas herramientas ANTES de que la ansiedad sea muy alta
+                </div>
+
+                <div class="tip-box">
+                    ✅ La práctica regular hace que las técnicas funcionen mejor
+                </div>
+
+                <div class="tip-box">
+                    ✅ Pedir ayuda es una señal de fortaleza, no de debilidad
+                </div>
+
+                <div class="tip-box">
+                    ✅ El progreso no es lineal - los retrocesos son parte del proceso
+                </div>
+
+                <div class="alert-box" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; margin-top: 30px;">
+                    <strong>Este kit es TU herramienta personalizada.</strong> Úsalo, ajústalo y hazlo tuyo.
+                </div>
+            </div>
+
+            <!-- BOTONES DE ACCIÓN -->
+            <div class="button-group">
+                <button class="btn-primary" onclick="guardarLocal()">💾 Guardar Progreso</button>
+                <button class="btn-secondary" onclick="imprimirKit()">🖨️ Imprimir Kit</button>
+                <button class="btn-success" onclick="descargarPDF()">📥 Descargar PDF</button>
+            </div>
+
+            <div class="success-msg" id="successMsg">
+                ✅ Tu kit ha sido guardado exitosamente. Puedes seguir editándolo cuando quieras.
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>🧠 Kit Anti-Ansiedad Interactivo | Herramienta de Autocuidado Personal</p>
+            <p style="font-size: 0.85em; margin-top: 10px;">Este kit es una herramienta complementaria. Si experimentas síntomas severos, por favor consulta a un profesional de salud mental.</p>
+        </div>
+    </div>
+
+    <script>
+        // Configurar fecha actual
+        document.getElementById('fecha').valueAsDate = new Date();
+        document.getElementById('review-date').valueAsDate = new Date();
+
+        // Acordeones interactivos
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                const isActive = this.classList.contains('active');
+
+                // Cerrar todos los demás
+                accordionHeaders.forEach(h => {
+                    if (h !== this) {
+                        h.classList.remove('active');
+                        h.nextElementSibling.classList.remove('active');
+                    }
+                });
+
+                // Toggle actual
+                this.classList.toggle('active');
+                content.classList.toggle('active');
+            });
+        });
+
+        // Guardar en Local Storage
+        function guardarLocal() {
+            const formData = {};
+            const inputs = document.querySelectorAll('input, textarea, select');
+            
+            inputs.forEach(input => {
+                if (input.id) {
+                    formData[input.id] = input.value;
+                }
+            });
+
+            localStorage.setItem('kitAnsiedad', JSON.stringify(formData));
+            
+            const successMsg = document.getElementById('successMsg');
+            successMsg.style.display = 'block';
+            setTimeout(() => {
+                successMsg.style.display = 'none';
+            }, 4000);
+        }
+
+        // Cargar datos guardados al abrir
+        window.addEventListener('load', function() {
+            const savedData = localStorage.getItem('kitAnsiedad');
+            if (savedData) {
+                const formData = JSON.parse(savedData);
+                Object.keys(formData).forEach(id => {
+                    const element = document.getElementById(id);
+                    if (element) {
+                        element.value = formData[id];
+                    }
+                });
+            }
+        });
+
+        // Imprimir
+        function imprimirKit() {
+            window.print();
+        }
+
+        // Descargar como PDF (simulado)
+        function descargarPDF() {
+            alert('Para descargar como PDF:\n1. Abre este archivo en tu navegador\n2. Presiona Ctrl+P (o Cmd+P en Mac)\n3. Selecciona "Guardar como PDF"\n4. ¡Listo!');
+        }
+    </script>
+</body>
+</html>
